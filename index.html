@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅游路径规划</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body { padding-top: 20px; }
+        .container { max-width: 600px; }
+        h1 { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">旅游路径规划</h1>
+    <form action="/search" method="post">
+        <div class="form-group">
+            <label for="start_name">出发点:</label>
+            <input type="text" class="form-control" id="start_name" name="start_name" required>
+        </div>
+        <div class="form-group">
+            <label for="destinations">目的地列表（用逗号分隔）:</label>
+            <input type="text" class="form-control" id="destinations" name="destinations" required>
+        </div>
+        <div class="form-group">
+            <label for="city">城市:</label>
+            <input type="text" class="form-control" id="city" name="city" value="北京" required>
+        </div>
+        <button type="submit" class="btn btn-primary">计算最优路径</button>
+    </form>
+</div>
+</body>
+</html>

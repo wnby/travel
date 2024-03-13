@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>路径规划结果</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body { padding-top: 20px; }
+        .container { max-width: 600px; }
+        h1, h2 { margin-bottom: 20px; }
+        ul { padding-left: 0; list-style: none; }
+        li { padding-left: 1.5em; }
+        li:before { content: "•"; color: #007bff; display: inline-block; width: 1em; margin-left: -1em; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">路径规划结果</h1>
+
+    {% for route in detailed_routes %}
+    <div class="route mt-4">
+        <h2>从 {{ route.from }} 到 {{ route.to }}</h2>
+        <h3>详细路径规划:</h3>
+        <ul>
+            {% for step in route.steps %}
+            <li>{{ step }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>
