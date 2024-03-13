@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# 高德地图API的Key，请替换成你的实际Key
+# 高德地图API的Key
 api_key = "9afa649960a68767bd3906977934d59b"
 
 
@@ -27,7 +27,7 @@ def get_transit_path_plan(origin, destination, city):
         data = response.json()
         if data.get("route") and data["route"].get("transits"):
             transits = data["route"]["transits"]
-            for transit in transits[:1]:  # 以第一个选项作为示例
+            for transit in transits[:1]:
                 for segment in transit.get("segments", []):
                     # 处理步行信息
                     walking = segment.get("walking")
@@ -40,7 +40,7 @@ def get_transit_path_plan(origin, destination, city):
                     # 处理公交信息
                     bus = segment.get("bus")
                     if bus and bus.get("buslines"):
-                        for busline in bus.get("buslines", [])[:1]:  # 以第一条公交线路作为示例
+                        for busline in bus.get("buslines", [])[:1]:
                             name = busline.get('name')
                             departure_stop = busline.get('departure_stop', {}).get('name')
                             arrival_stop = busline.get('arrival_stop', {}).get('name')
